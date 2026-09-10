@@ -4,4 +4,3 @@ cradle:
       - -ilib
       - lib/Types.hs
       - lib/CalcBox.hs
-      - clase_4/fibonacci.hs
