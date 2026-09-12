@@ -6,28 +6,31 @@ build-type:    Simple
 library
     hs-source-dirs:
         lib
-        clase_4
-        clase_5
-        clase_6_teorica
-
+        src/clase_4
+        src/clase_5
+        src/clase_6_teorica
     exposed-modules:
         Types
         CalcBox
         Fibonacci
         ContarPalabras
-
     build-depends:
         base >= 4.14 && < 5,
         HUnit
-
     default-language: Haskell2010
 
 test-suite unit-tests
-    type:             exitcode-stdio-1.0
-    main-is:          Spec.hs
-    hs-source-dirs:   lib, clase_6_teorica, clase_4
-    other-modules:    ContarPalabrasTest, FibonacciTest
-    build-depends:    base >= 4.14 && < 5,
-                      HUnit,
-                      ip2026
+    type: exitcode-stdio-1.0
+    main-is: Spec.hs
+    hs-source-dirs:
+        test
+        src/clase_4
+        src/clase_6_teorica
+    other-modules:
+        ContarPalabrasTest
+        FibonacciTest
+    build-depends:
+        base >= 4.14 && < 5,
+        HUnit,
+        ip2026
     default-language: Haskell2010
