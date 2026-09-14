@@ -4,6 +4,9 @@ import Test.HUnit
 import ContarPalabras (contarPalabras)
 import Types (Z)
 
+-- ejecutar los tests
+runContarPalabrasTest = runTestTT testSuite
+
 -- test Input
 testCasoBase0 :: Test
 testCasoBase0 = "ContarPalabras de [] es 0" ~: 0 ~=? contarPalabras []
@@ -29,7 +32,3 @@ testSuite = TestList [
     testCasoBase2,
     testCasosRecursivos
     ]
-
--- ejecutar los tests
-contarPalabrasTest :: IO Counts
-contarPalabrasTest = runTestTT testSuite

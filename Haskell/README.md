@@ -44,5 +44,5 @@
 - Ejecución sin Test.HUnit (utiliza los módulos declarados en ./hie.yaml)
 
 ```shell
-  ghci -ilib clase_n/función.hs
+  ghci -ilib src/clase_n/función.hs
 ```
