@@ -10,13 +10,16 @@ Se dice que n es un número abundante si la suma de sus divisores propios es may
 
 Se pide implementar f1:
 
+```
 problema f1 (d: Z,h: Z) : Z {
     requiere: {0 < d ≤ h}
     asegura: {res es la cantidad de números abundantes en el rango [d..h]}
 }
+```
 
-    Ejemplo: f1 12 24 debe devolver 4
-    
+```
+Ejemplo: f1 12 24 debe devolver 4
+```   
 
 ### Ejercicio 2 (2 puntos)
 Representaremos una cursada aprobada con una tupla String x Z x Z, donde:
