@@ -9,6 +9,8 @@ library
         src/clase_4
         src/clase_5
         src/clase_6_teorica
+        src/clase_7
+        src/clase_8_simulacro
     exposed-modules:
         Types
         CalcBox
