@@ -1,10 +1,10 @@
-import SolucionT1
 import Test.HUnit
 import Data.List
+import SolucionT1
 
-main = runTestTT allTests
+runTest_t1_ej1 = runTestTT tests
 
-allTests = test[
+tests = test [
     -- Casos base y casos sin numeros abundantes
     "Rango sin números abundantes" ~: f1 3 4 ~?= 0,
     "Rango de un solo número no abundante" ~: f1 5 5 ~?= 0,

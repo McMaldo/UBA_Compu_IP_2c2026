@@ -4,7 +4,7 @@ import Data.List
 
 runTest_t1_ej3 = runTestTT allTests
 
-allTests = test[
+allTests = test [
     "Lista vacía" ~: f3 [] 5 ~?= [],
     "Ningún elemento supera el umbral" ~: f3 [1, 2, 3, 4] 5 ~?= [1, 2, 3, 4],
     "Algunos elementos superan el umbral" ~: f3 [3, 6, 2, 9] 5 ~?= [3, 5, 2, 5],

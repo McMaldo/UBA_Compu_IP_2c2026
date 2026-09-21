@@ -4,7 +4,7 @@ import Data.List
 
 runTest_t1_ej4 = runTestTT allTests
 
-allTests = test[
+allTests = test [
     "Columna sin pares" ~: f4 [[1, 3], [5, 7], [9, 11]] 1 ~?= 0,
     "Columna con algunos pares" ~: f4 [[1, 2], [4, 5], [7, 8]] 2 ~?= 2,
     "Columna con todos pares" ~: f4 [[2, 4], [6, 8], [10, 12]] 1 ~?= 3,

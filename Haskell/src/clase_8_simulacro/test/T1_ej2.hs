@@ -4,7 +4,7 @@ import Data.List
 
 runTest_t1_ej2 = runTestTT allTests
 
-allTests = test[
+allTests = test [
     "Lista vacía" ~: f2 [] ~?= [],
     "Ninguna cursada vencida" ~: f2 [("Álgebra", 2022, 1), ("Análisis", 2023, 2)] ~?= [],
     "Una vencida y otra no" ~: f2 [("Álgebra", 2020, 2), ("Análisis", 2021, 2)] ~?= ["Álgebra"],

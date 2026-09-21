@@ -19,13 +19,14 @@ problema f1 (d: Z,h: Z) : Z {
 
 ```
 Ejemplo: f1 12 24 debe devolver 4
-```   
+```
 
 ### Ejercicio 2 (2 puntos)
+
 Representaremos una cursada aprobada con una tupla String x Z x Z, donde:
-    La primera componente de la tupla contiene el nombre de una materia
-    La segunda componente de la tupla contiene el año de aprobación de la cursada
-    La tercera componente de la tupla contiene el cuatrimestre de aprobación de la cursada (el valor 0 representa un curso de verano)
+La primera componente de la tupla contiene el nombre de una materia
+La segunda componente de la tupla contiene el año de aprobación de la cursada
+La tercera componente de la tupla contiene el cuatrimestre de aprobación de la cursada (el valor 0 representa un curso de verano)
 Se pide implementar f2, que dada una lista de cursadas devuelva aquellas materias cuya aprobación de la cursada ya venció, y por lo tanto ya no se puede rendir el final
 
 ```
@@ -55,7 +56,7 @@ problema f3 (s: seq⟨Z⟩, u: Z) : seq⟨Z⟩ {
 
 ```
 Ejemplo: f3 [3,8,5,0,7,-2,4] 5 debe devolver [3,5,5,0,5]
-```   
+```
 
 ### Ejercicio 4 (2 puntos)
 
@@ -65,13 +66,13 @@ problema f4 (matriz: seq⟨seq⟨Z⟩⟩, col: Z) : Z{
     requiere: {|matriz| > 0}
     requiere: {|matriz[0]| > 0}
     requiere: {1 ≤ col ≤ |matriz[0]| }
-    asegura: {res es la cantidad de números pares de los elementos matriz[i][col-1] para todo i tal que 0 ≤ i < |matriz| }
+    asegura: {res es la cantidad de números pares de los elementos matriz[i][col-1] para todo i tal que 0 ≤ i < |matriz|}
 }
 ```
 
 ```
 Ejemplo: f4 [[-9,8,2,3],[2,7,-5,3],[-1,0,5,6]] 2 debe devolver 2
-```    
+```
 
 ### Ejercicio 5 (0,75 puntos)
 
@@ -81,7 +82,7 @@ Conteste marcando la opción correcta.
 
 - [ ] El programa no compila.
 - [ ] Haskell elige un valor por defecto automáticamente.
-- [X] El programa puede lanzar un error en tiempo de ejecución si se invoca con un patrón no contemplado.
+- [x] El programa puede lanzar un error en tiempo de ejecución si se invoca con un patrón no contemplado.
 
 ### Ejercicio 6 (0,75 puntos)
 
@@ -90,5 +91,5 @@ Conteste marcando la opción correcta.
 Dado un problema con parámetros c (de tipo Char) y s (de tipo String), cuya única precondición es (esVocal(c) ∨ longitud(s) > 3):
 
 - [ ] La precondición garantiza que siempre se trabajará con strings no vacíos.
-- [X] Si c es una consonante y s tiene longitud igual a 2, no se garantiza el comportamiento correcto del programa.
+- [x] Si c es una consonante y s tiene longitud igual a 2, no se garantiza el comportamiento correcto del programa.
 - [ ] Cualquier combinación de valores de c y s es válida, porque la precondición es una disyunción en vez de una conjunción.
