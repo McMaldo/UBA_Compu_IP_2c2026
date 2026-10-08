@@ -1,0 +1,941 @@
+<h1>Parcial - tema2</h1>
+<p>Nota: 9.5 / 10.0 (APROBADO)</p>
+<pre>
+    <code>
+    puntaje ej1: 2
+    puntaje ej2: 0.0
+    puntaje ej3: 0.5
+    puntaje ej4: 2
+    puntaje ej5: 2
+    puntaje ej6: 2
+    puntaje ej7: 0.5
+    puntaje ej8: 0.5
+    </code>
+</pre>
+<h2>Datos del alumno</h2>
+<p>Nombre: Pablo Ignacio Maldonado</p>
+<p>DNI: --.---.---</p>
+<p>LU: ----/--</p>
+<p>Maquina: 57-05</p>
+<h2>Enunciado</h2>
+<!doctype html>
+<html>
+    <head>
+        <link rel="icon" href="data:," />
+        <link href="css/style.css" rel="stylesheet" />
+
+        <style>
+            th,
+            td {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            .conditions {
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body style="width: 50%; margin: 1% auto">
+        <div>
+            <h1>Parcial Haskell - Tema 2 - Turno noche</h1>
+
+            <p></p>
+
+            <h2>Importante</h2>
+            Template de funciones a implementar
+            <a
+                href="#"
+                onclick="
+                    forceDownload('/parcial/Template_t2.hs', 'SolucionT2.hs')
+                "
+                >acá</a
+            ><br />
+            Lista de funciones permitidas
+            <a href="/static/haskell_permitidas.html">acá</a><br />
+            Ejemplo de hunit
+            <a
+                href="#"
+                onclick="
+                    forceDownload(
+                        '/parcial/Test_template_t2.hs',
+                        'Test_template_t2.hs',
+                    )
+                "
+                >acá</a
+            >
+
+            <p></p>
+
+            <form
+                name="form1"
+                action="/submit_examen"
+                method="post"
+                enctype="multipart/form-data"
+                onsubmit="return validaciones(event);"
+            >
+                <hr style="width: 100%" />
+                <h2>Enunciado</h2>
+
+                <ol style="padding-left: 0; list-style: none">
+                    <p>
+                        Resolver los siguientes ejercicios cuyas
+                        especificaciones en lenguaje semiformal figuran a
+                        continuación. Deben ser implementadas en Haskell
+                        utilizando los tipos requeridos y solamente las
+                        funciones que se ven en la materia Introducción a la
+                        Programación / Algoritmos y Estructuras de Datos I
+                        (FCEyN-UBA).
+                    </p>
+
+                    <li><strong>Ejercicio 1 [2 puntos]</strong></li>
+
+                    <p>
+                        problema ejercicio1 (<i>s</i>: seq&#10216;Z&#10217;,
+                        <i>n</i>: Z) : seq&#10216;Z&#10217; {<br />
+                        &nbsp; <strong>requiere:</strong> {existe un
+                        &iacute;ndice <i>i</i> tal que 0 &le; i &lt;
+                        |<i>s</i>|-1 y <i>s</i>[i]*<i>s</i>[i+1] = <i>n</i>}
+                        <br />
+                        &nbsp; <strong>asegura:</strong> {|<i>res</i>| =
+                        |<i>s</i>| - 2} <br />
+                        &nbsp; <strong>asegura:</strong> {<i>res</i> es igual a
+                        <i>s</i> sin <i>s</i>[j] ni <i>s</i>[j+1], donde j es
+                        una posici&oacute;n v&aacute;lida de <i>s</i> tal que
+                        <i>s</i>[j] * <i>s</i>[j+1] = <i>n</i>} <br />
+                        }<br />
+                    </p>
+
+                    <hr
+                        style="
+                            margin: 25px 0;
+                            border: none;
+                            border-top: 1px solid #ccc;
+                        "
+                    />
+
+                    <li><strong>Ejercicio 2 [0,5 puntos]</strong></li>
+                    <p>
+                        Conteste marcando la opci&oacute;n correcta. <br />
+                        <b
+                            >&iquest;Qu&eacute; nombre le pondr&iacute;as a la
+                            funci&oacute;n del ejercicio anterior?</b
+                        >
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="mchoice_1"
+                            id="opcion1"
+                            value="1"
+                        />
+                        <label for="opcion1"
+                            >SacarTodosLosParesConsecutivosCuyoProductoEsN</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_1"
+                            id="opcion2"
+                            value="2"
+                        />
+                        <label for="opcion2"
+                            >SacarAlgunParConsecutivoCuyoProductoEsN</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_1"
+                            id="opcion3"
+                            value="3"
+                        />
+                        <label for="opcion3"
+                            >SacarPrimerParConsecutivoCuyoProductoEsN</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_1"
+                            id="opcion4"
+                            value="4"
+                        />
+                        <label for="opcion4"
+                            >Ninguna de las opciones anteriores describe
+                            adecuadamente el problema</label
+                        >
+                        <br />
+                    </p>
+
+                    <hr
+                        style="
+                            margin: 25px 0;
+                            border: none;
+                            border-top: 1px solid #ccc;
+                        "
+                    />
+
+                    <li><strong>Ejercicio 3 [0,5 puntos]</strong></li>
+                    <p>
+                        Conteste marcando la opci&oacute;n correcta, teniendo el
+                        cuenta el problema <code>ejercicio1</code> <br />
+                        <b
+                            >Si <code> s = [1, -3, 0, 2, -6] </code> y
+                            <code> n = 0 </code>, entonces:</b
+                        >
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="mchoice_2"
+                            id="opcion1_2"
+                            value="1"
+                        />
+                        <label for="opcion1_2"
+                            ><code> res1 = [1, 2, -6] </code> es una salida
+                            válida</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_2"
+                            id="opcion2_2"
+                            value="2"
+                        />
+                        <label for="opcion2_2"
+                            ><code> res2 = [1,-6] </code> es una salida
+                            válida</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_2"
+                            id="opcion3_2"
+                            value="3"
+                        />
+                        <label for="opcion3_2"
+                            >No es posible ejecutar la función con <i> n </i> =
+                            0</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_2"
+                            id="opcion4_2"
+                            value="4"
+                        />
+                        <label for="opcion4_2"
+                            >No hay problema con <i> n </i> = 0, pero res1 y
+                            res2 no son soluciones válidas de acuerdo a la
+                            especificación</label
+                        >
+                        <br />
+                    </p>
+
+                    <hr
+                        style="
+                            margin: 25px 0;
+                            border: none;
+                            border-top: 1px solid #ccc;
+                        "
+                    />
+
+                    <li><strong>Ejercicio 4 [2 puntos]</strong></li>
+
+                    <p>
+                        Decimos que un n&uacute;mero entero positivo no tiene
+                        <strong>d&iacute;gitos repetidos</strong> si todos sus
+                        d&iacute;gitos son distintos entre s&iacute;. Por
+                        ejemplo, 1234 y 5 no tienen d&iacute;gitos repetidos,
+                        mientras que 1123 y 99 s&iacute; tienen d&iacute;gitos
+                        repetidos.
+                    </p>
+
+                    <p>
+                        problema cantidadSinDigitosRepetidos (<i>d</i>: Z,
+                        <i>h</i>: Z) : Z {<br />
+                        &nbsp; <strong>requiere:</strong> {0 &lt; <i>d</i> &le;
+                        <i>h</i>} <br />
+                        &nbsp; <strong>asegura:</strong> {<i>res</i> es la
+                        cantidad de n&uacute;meros sin d&iacute;gitos repetidos
+                        en el rango [<i>d</i>..<i>h</i>]} <br />
+                        }<br />
+                    </p>
+
+                    <pre
+                        style="
+                            background-color: #f0f0f0; /* Color de fondo del recuadro */
+                            padding: 2px; /* Espacio interior */
+                            border: 1px solid #ccc; /* Borde del recuadro */
+                            border-radius: 5px; /* Bordes redondeados */
+                        "
+                    >
+<b>Ejemplo:</b> <code>cantidadSinDigitosRepetidos 95 105</code> debe devolver <code>8</code> <br>(porque 99, 100 y 101 tienen d&iacute;gitos repetidos; los dem&aacute;s no)
+</pre>
+
+                    <hr
+                        style="
+                            margin: 25px 0;
+                            border: none;
+                            border-top: 1px solid #ccc;
+                        "
+                    />
+
+                    <li><strong>Ejercicio 5 [2 puntos]</strong></li>
+
+                    <p>
+                        problema distanciaEntreExtremosDelMaximo (<i>lista</i>:
+                        seq&#10216;Z&#10217;) : Z {<br />
+                        &nbsp; <strong>requiere:</strong> {|<i>lista</i>| &gt;
+                        0} <br />
+                        &nbsp; <strong>asegura:</strong> {<i>res</i> es la
+                        distancia (en cantidad de posiciones) entre la primera y
+                        la &uacute;ltima aparici&oacute;n del valor
+                        m&aacute;ximo de <i>lista</i>} <br />
+                        }<br />
+                    </p>
+
+                    <pre
+                        style="
+                            background-color: #f0f0f0; /* Color de fondo del recuadro */
+                            padding: 2px; /* Espacio interior */
+                            border: 1px solid #ccc; /* Borde del recuadro */
+                            border-radius: 5px; /* Bordes redondeados */
+                        "
+                    >
+<b>Ejemplo:</b> <code>distanciaEntreExtremosDelMaximo [3,7,7,2,7,1]</code> debe devolver <code>3</code> <br>(el m&aacute;ximo es 7, su primera aparici&oacute;n es la posici&oacute;n 1 y su &uacute;ltima aparici&oacute;n es la posici&oacute;n 4)
+</pre>
+
+                    <hr
+                        style="
+                            margin: 25px 0;
+                            border: none;
+                            border-top: 1px solid #ccc;
+                        "
+                    />
+
+                    <li><strong>Ejercicio 6 [2 puntos]</strong></li>
+
+                    <p>
+                        En Haskell, una matriz se puede representar utilizando
+                        una secuencia de secuencias, donde cada secuencia
+                        interna representa una fila de la matriz. Todas las
+                        filas deben tener igual longitud.
+                    </p>
+
+                    <p>
+                        problema ejercicio6 (<i>matriz</i>:
+                        seq&#10216;seq&#10216;Z&#10217;&#10217;) :
+                        seq&#10216;seq&#10216;Z&#10217;&#10217; {<br />
+                        &nbsp; <strong>requiere:</strong> {|<i>matriz</i>| &gt;
+                        0} <br />
+                        &nbsp; <strong>requiere:</strong> {para toda fila
+                        perteneciente a <i>matriz</i>, |<i>fila</i>| =
+                        |<i>matriz</i>|} <br />
+                        &nbsp; <strong>asegura:</strong> {|<i>res</i>| =
+                        |<i>matriz</i>|} <br />
+                        &nbsp; <strong>asegura:</strong> {para todo i tal que 0
+                        &le; i &lt; |<i>matriz</i>|, |<i>res</i>[i]| =
+                        |<i>matriz</i>[i]|} <br />
+                        &nbsp; <strong>asegura:</strong> {para todo i, j tales
+                        que 0 &le; i &lt; |<i>matriz</i>| y 0 &le; j &lt;
+                        |<i>matriz</i>|, i &ne; j: <i>res</i>[i][j] =
+                        <i>matriz</i>[i][j]} <br />
+                        &nbsp; <strong>asegura:</strong> {para todo i tal que 0
+                        &le; i &lt; |<i>matriz</i>|: si <i>matriz</i>[i][i] es
+                        par entonces <i>res</i>[i][i] = 0, si no
+                        <i>res</i>[i][i] = 1} <br />
+                        }<br />
+                    </p>
+
+                    <hr
+                        style="
+                            margin: 25px 0;
+                            border: none;
+                            border-top: 1px solid #ccc;
+                        "
+                    />
+
+                    <li><strong>Ejercicio 7 [0,5 puntos]</strong></li>
+                    <p>
+                        Conteste marcando la opci&oacute;n correcta. <br />
+                        <b
+                            >&iquest;Qu&eacute; nombre le pondr&iacute;as a la
+                            funci&oacute;n del ejercicio anterior?</b
+                        >
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="mchoice_3"
+                            id="opcion1_3"
+                            value="1"
+                        />
+                        <label for="opcion1_3"
+                            >ReemplazarDiagonalSegúnParidad</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_3"
+                            id="opcion2_3"
+                            value="2"
+                        />
+                        <label for="opcion2_3"
+                            >ReemplazarDiagonalPorCeros</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_3"
+                            id="opcion3_3"
+                            value="3"
+                        />
+                        <label for="opcion3_3">ObtenerDiagonal</label> <br />
+                        <input
+                            type="radio"
+                            name="mchoice_3"
+                            id="opcion4_3"
+                            value="4"
+                        />
+                        <label for="opcion4_3"
+                            >Ninguna de las opciones anteriores es un buen
+                            nombre para la funci&oacute;n</label
+                        >
+                        <br />
+                    </p>
+
+                    <hr
+                        style="
+                            margin: 25px 0;
+                            border: none;
+                            border-top: 1px solid #ccc;
+                        "
+                    />
+
+                    <li><strong>Ejercicio 8 [0,5 puntos]</strong></li>
+                    <p>
+                        <b
+                            >&iquest;Cu&aacute;l de las siguientes afirmaciones
+                            describe mejor el testing de caja negra?</b
+                        >
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="mchoice_4"
+                            id="opcion1_4"
+                            value="1"
+                        />
+                        <label for="opcion1_4"
+                            >Consiste en dise&ntilde;ar pruebas a partir de la
+                            especificaci&oacute;n del programa y observar sus
+                            resultados.</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_4"
+                            id="opcion2_4"
+                            value="2"
+                        />
+                        <label for="opcion2_4"
+                            >Consiste en demostrar que el programa no tiene
+                            errores.</label
+                        >
+                        <br />
+                        <input
+                            type="radio"
+                            name="mchoice_4"
+                            id="opcion3_4"
+                            value="3"
+                        />
+                        <label for="opcion3_4"
+                            >Consiste en ejecutar todas las funciones
+                            (principales y auxiliares) al menos una vez.</label
+                        >
+                        <br />
+                    </p>
+                </ol>
+
+                <hr />
+                <h3 style="color: #1a5276">
+                    Adjunta el archivo con tu solución:
+                </h3>
+                <p>
+                    <b style="color: red"
+                        >Solo se puede adjuntar 1 archivo de extensión .hs. En
+                        caso de haber desarrollado tests propios, no deben ser
+                        entregados.</b
+                    >
+                </p>
+
+                <label for="archivo">Seleccionar archivo a enviar:</label>
+                <input
+                    type="file"
+                    id="archivo"
+                    name="archivo"
+                    required
+                    accept=".hs,text/x-haskell"
+                />
+
+                <input
+                    type="submit"
+                    value="Enviar"
+                    style="
+                        background-color: #1a5276;
+                        border-radius: 5px;
+                        margin-top: 10px;
+                        padding: 10px 150px;
+                        color: #ffffff;
+                        font-size: 20px;
+                        cursor: pointer;
+                        width: 100%;
+                    "
+                />
+            </form>
+        </div>
+
+        <script>
+            function validaciones(event) {
+                // Obtiene todos los inputs tipo radio del formulario
+                const radioGroups = document.querySelectorAll(
+                    'input[type="radio"]',
+                );
+                const groupedByName = {};
+
+                // Agrupar radios por su atributo name
+                radioGroups.forEach((radio) => {
+                    if (!groupedByName[radio.name]) {
+                        groupedByName[radio.name] = [];
+                    }
+                    groupedByName[radio.name].push(radio);
+                });
+
+                // Verificar que cada grupo de radios tenga al menos uno seleccionado
+                for (const groupName in groupedByName) {
+                    const radios = groupedByName[groupName];
+                    const isChecked = radios.some((radio) => radio.checked);
+
+                    if (!isChecked) {
+                        alert(
+                            `Debes seleccionar una opción para la pregunta ${groupName}`,
+                        );
+                        return false; // Detener la validación si falta alguna opción
+                    }
+                }
+
+                var confirmacion = confirm(
+                    "Confirmo que revise mis respuestas y que quiero entregar mi examen",
+                );
+                if (!confirmacion) {
+                    event.preventDefault();
+                    event.returnValue = false;
+                    return false;
+                }
+                event.returnValue = true;
+                return true;
+            }
+        </script>
+
+        <script>
+            // registro una funcion para mostrar el archivo cuando se adjunta.
+            // de esa forma evitamos que se adjunten otros archivos por error
+            document
+                .getElementById("archivo")
+                .addEventListener("change", function () {
+                    var fr = new FileReader();
+                    fr.onload = function () {
+                        alert(this.result);
+                    };
+                    fr.readAsText(this.files[0]);
+                });
+
+            // para forzar a bajar el template de hunit y que no se pueda abrir en un nuevo tab
+            // (el browser intenta mostrar el codigo como HTML y el formato se ve raro)
+            function forceDownload(url, filename) {
+                fetch(url).then(function (t) {
+                    return t.blob().then((b) => {
+                        var a = document.createElement("a");
+                        a.href = URL.createObjectURL(b);
+                        a.setAttribute("download", filename);
+                        a.click();
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>
+
+<h2>Solucion entregada por el alumno</h2>
+<pre><code>module SolucionT2 where
+
+-- Ejercicio 1
+-- t = (18:15 - 18:24)
+
+ejercicio1 :: [Integer] -&gt; Integer -&gt; [Integer]
+ejercicio1 [] _ = []
+ejercicio1 [x] _ = [x]
+ejercicio1 (x:y:ys) n
+    | (x * y == n) = ys
+    | otherwise = x : ejercicio1 (y:ys) n
+
+-- Ejercicio 4
+-- t = (18:35 - 18:40) + (19:53 - 20:35)
+
+cantidadSinDigitosRepetidos :: Integer -&gt; Integer -&gt; Integer
+cantidadSinDigitosRepetidos d h
+    | d == h &amp;&amp; tieneDigitosRepetidos (intToIntList h) = 0
+    | d == h = 1
+    | tieneDigitosRepetidos (intToIntList d) = cantidadSinDigitosRepetidos (d+1) h
+    | otherwise = 1 + cantidadSinDigitosRepetidos (d+1) h
+
+-- Funcion para Testing
+sinDigitosRepetidos :: Integer -&gt; Integer -&gt; [Integer]
+sinDigitosRepetidos d h
+    | d == h &amp;&amp; tieneDigitosRepetidos (intToIntList h) = []
+    | d == h = [d]
+    | tieneDigitosRepetidos (intToIntList d) = sinDigitosRepetidos (d+1) h
+    | otherwise = d : sinDigitosRepetidos (d+1) h
+-- Funcion para Testing
+
+tieneDigitosRepetidos :: [Integer] -&gt; Bool
+tieneDigitosRepetidos [] = False
+tieneDigitosRepetidos [n] = False
+tieneDigitosRepetidos (n:ns)
+    | pertenece n ns = True
+    | otherwise = tieneDigitosRepetidos ns
+
+intToIntList :: Integer -&gt; [Integer]
+intToIntList 0  = []
+intToIntList n = (mod n 10) : intToIntList (div n 10)
+
+-- Ejercicio 5
+-- t = (18:43 - 19:16)
+
+distanciaEntreExtremosDelMaximo :: [Integer] -&gt; Integer
+distanciaEntreExtremosDelMaximo [] = 0
+distanciaEntreExtremosDelMaximo ns = (ultimoMaximoPosicion ns (maximoDeLista ns)) - (primerMaximoPosicion ns (maximoDeLista ns))
+
+maximoDeLista :: [Integer] -&gt; Integer
+maximoDeLista [x] = x
+maximoDeLista (x:y:ys)
+    | x &gt; y = maximoDeLista (x:ys)
+    | otherwise = maximoDeLista (y:ys)
+
+primerMaximoPosicion :: [Integer] -&gt; Integer -&gt; Integer
+primerMaximoPosicion [n] _ = 0
+primerMaximoPosicion (n:ns) maximo
+    | n == maximo = 0
+    | otherwise = 1 + primerMaximoPosicion (ns) maximo
+
+ultimoMaximoPosicion :: [Integer] -&gt; Integer -&gt; Integer
+ultimoMaximoPosicion [n] _ = 0
+ultimoMaximoPosicion (n:ns) maximo
+    | n == maximo &amp;&amp; esUltimoMaximo (n:ns) = 0
+    | otherwise = 1 + ultimoMaximoPosicion (ns) maximo
+
+esUltimoMaximo :: [Integer] -&gt; Bool
+esUltimoMaximo (n:ns) = not (pertenece n ns)
+
+pertenece :: Integer -&gt; [Integer] -&gt; Bool
+pertenece _ [] = False
+pertenece n (x:xs)
+    | n == x = True
+    | otherwise = pertenece n xs
+
+
+-- Ejercicio 6
+-- t = (19:16 - 19:46)
+
+ejercicio6 :: [[Integer]] -&gt; [[Integer]]
+ejercicio6 [] = []
+ejercicio6 matriz = paresDeMatriz matriz 0
+
+paresDeMatriz :: [[Integer]] -&gt; Integer -&gt; [[Integer]]
+paresDeMatriz [] _ = []
+paresDeMatriz (fila:matriz) j = (paresDeFila fila 0 j) : (paresDeMatriz matriz (j+1))
+
+paresDeFila :: [Integer] -&gt; Integer -&gt; Integer -&gt; [Integer]
+paresDeFila [] _ _ = []
+paresDeFila (n:fila) i j
+    | (i == j) = (mod n 2) : paresDeFila fila (i+1) j
+    | otherwise = n : paresDeFila fila (i+1) j
+
+{-
+# Introducción a Programación
+
+## 1er Parcial - Tema 2 - Turno Noche
+
+Resolver los siguientes ejercicios cuyas especificaciones en lenguaje semiformal figuran a continuación. Deben ser implementadas en Haskell utilizando los tipos requeridos y solamente las funciones que se ven en la materia Introducción a la Programación / Algoritmos y Estructuras de Datos I (FCEyN-UBA).
+
+### Ejercicio 1 [2 puntos]
+
+```Haskell
+problema ejercicio1 (s: seq⟨Z⟩, n: Z) : seq⟨Z⟩ {
+    requiere: {existe un índice i tal que 0 ≤ i &lt; |s|-1 y s[i]*s[i+1] = n}
+    asegura: {|res| = |s| - 2}
+    asegura: {res es igual a s sin s[j] ni s[j+1], donde j es una posición válida de s tal que s[j] * s[j+1] = n}
+}
+</code></pre>
+<h3>Ejercicio 2 [0,5 puntos]</h3>
+<p>Conteste marcando la opción correcta.</p>
+<p>¿Qué nombre le pondrías a la función del ejercicio anterior?</p>
+<ul>
+    <li>[ ] SacarTodosLosParesConsecutivosCuyoProductoEsN</li>
+    <li>[ ] SacarAlgunParConsecutivoCuyoProductoEsN</li>
+    <li>[x] SacarPrimerParConsecutivoCuyoProductoEsN</li>
+    <li>
+        [ ] Ninguna de las opciones anteriores describe adecuadamente el
+        problema
+    </li>
+</ul>
+<h3>Ejercicio 3 [0,5 puntos]</h3>
+<p>
+    Conteste marcando la opción correcta, teniendo el cuenta el problema
+    ejercicio1
+</p>
+<p>Si s = [1, -3, 0, 2, -6] y n = 0 , entonces:</p>
+<ul>
+    <li>[x] res1 = [1, 2, -6] es una salida válida</li>
+    <li>[ ] res2 = [1,-6] es una salida válida</li>
+    <li>[ ] No es posible ejecutar la función con n = 0</li>
+    <li>
+        [ ] No hay problema con n = 0, pero res1 y res2 no son soluciones
+        válidas de acuerdo a la especificación
+    </li>
+</ul>
+<h3>Ejercicio 4 [2 puntos]</h3>
+<p>
+    Decimos que un número entero positivo no tiene dígitos repetidos si todos
+    sus dígitos son distintos entre sí. Por ejemplo, 1234 y 5 no tienen dígitos
+    repetidos, mientras que 1123 y 99 sí tienen dígitos repetidos.
+</p>
+<pre><code class="language-Haskell">problema cantidadSinDigitosRepetidos (d: Z, h: Z) : Z {
+    requiere: {0 &lt; d ≤ h}
+    asegura: {res es la cantidad de números sin dígitos repetidos en el rango [d..h]}
+}
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-Shell">cantidadSinDigitosRepetidos 95 105 debe devolver 8
+# (porque 99, 100 y 101 tienen dígitos repetidos; los demás no)
+</code></pre>
+<h3>Ejercicio 5 [2 puntos]</h3>
+<pre><code class="language-Haskell">problema distanciaEntreExtremosDelMaximo (lista: seq⟨Z⟩) : Z {
+    requiere: {|lista| &gt; 0}
+    asegura: {res es la distancia (en cantidad de posiciones) entre la primera y la última aparición del valor máximo de lista}
+}
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code class="language-Shell">distanciaEntreExtremosDelMaximo [3,7,7,2,7,1] debe devolver 3
+# (el máximo es 7, su primera aparición es la posición 1 y su última aparición es la posición 4)
+</code></pre>
+<h3>Ejercicio 6 [2 puntos]</h3>
+<p>
+    En Haskell, una matriz se puede representar utilizando una secuencia de
+    secuencias, donde cada secuencia interna representa una fila de la matriz.
+    Todas las filas deben tener igual longitud.
+</p>
+<pre><code class="language-Haskell">problema ejercicio6 (matriz: seq⟨seq⟨Z⟩⟩) : seq⟨seq⟨Z⟩⟩ {
+    requiere: {|matriz| &gt; 0}
+    requiere: {para toda fila perteneciente a matriz, |fila| = |matriz|}
+    asegura: {|res| = |matriz|}
+    asegura: {para todo i tal que 0 ≤ i &lt; |matriz|, |res[i]| = |matriz[i]|}
+    asegura: {para todo i, j tales que 0 ≤ i &lt; |matriz| y 0 ≤ j &lt; |matriz|, i ≠ j: res[i][j] = matriz[i][j]}
+    asegura: {para todo i tal que 0 ≤ i &lt; |matriz|: si matriz[i][i] es par entonces res[i][i] = 0, si no res[i][i] = 1}
+}
+</code></pre>
+<pre><code class="language-Haskell">input = [
+    [1,2,3,4],
+    [1,2,3,4],
+    [1,2,3,4],
+    [1,2,3,4]
+]
+
+res = [
+    [1,2,3,4],
+    [1,0,3,4],
+    [1,2,1,4],
+    [1,2,3,0]
+]
+</code></pre>
+<h3>Ejercicio 7 [0,5 puntos]</h3>
+<p>Conteste marcando la opción correcta.</p>
+<p>¿Qué nombre le pondrías a la función del ejercicio anterior?</p>
+<ul>
+    <li>[x] ReemplazarDiagonalSegúnParidad</li>
+    <li>[ ] ReemplazarDiagonalPorCeros</li>
+    <li>[ ] ObtenerDiagonal</li>
+    <li>
+        [ ] Ninguna de las opciones anteriores es un buen nombre para la función
+    </li>
+</ul>
+<h3>Ejercicio 8 [0,5 puntos]</h3>
+<p>
+    ¿Cuál de las siguientes afirmaciones describe mejor el testing de caja
+    negra?
+</p>
+<ul>
+    <li>
+        [x] Consiste en diseñar pruebas a partir de la especificación del
+        programa y observar sus resultados.
+    </li>
+    <li>[ ] Consiste en demostrar que el programa no tiene errores.</li>
+    <li>
+        [ ] Consiste en ejecutar todas las funciones (principales y auxiliares)
+        al menos una vez. -}
+    </li>
+</ul>
+<p>{- import Test.HUnit import SolucionT2</p>
+<p>runTest = runTestTT tests</p>
+<p>
+    tests = test [ -- Ejercicio 1 "Ej 1 - caso 0" ~: ejercicio1
+    [1,2,3,4,5,6,7,8] 2 ~?= [3,4,5,6,7,8], "Ej 1 - caso 1" ~: ejercicio1
+    [1,2,3,4,5,6,7,8] 6 ~?= [1,4,5,6,7,8], "Ej 1 - caso 2" ~: ejercicio1
+    [1,2,3,4,5,6,7,8] 12 ~?= [1,2,5,6,7,8],
+</p>
+<pre><code>-- Ejercicio 3
+"Ej 1 - caso 3" ~: ejercicio1 [1,-3,0,2,-6] 0 ~?= [1,2,-6],
+
+-- Ejercicio 4
+"Ej 4 - caso 0" ~: cantidadSinDigitosRepetidos 95 105 ~?= 8,
+"Ej 4 - caso 0" ~: cantidadSinDigitosRepetidos 95 95 ~?= 1,
+
+-- Ejercicio 5
+"Ej 5 - caso 0" ~: distanciaEntreExtremosDelMaximo [3,7,7,2,7,1] ~?= 3,
+"Ej 5 - caso 1" ~: distanciaEntreExtremosDelMaximo [7,7,7,2,7,1] ~?= 4,
+"Ej 5 - caso 2" ~: distanciaEntreExtremosDelMaximo [1,1,1,1,1,1] ~?= 5,
+"Ej 5 - caso 3" ~: distanciaEntreExtremosDelMaximo [1] ~?= 0,
+"Ej 5 - caso 4" ~: distanciaEntreExtremosDelMaximo [1,1] ~?= 1,
+
+"Ej 5 - aux 0" ~: primerMaximoPosicion [3,7,7,2,7,1] 7 ~?= 1,
+"Ej 5 - aux 1" ~: ultimoMaximoPosicion [3,7,7,2,7,1] 7 ~?= 4,
+
+-- Ejercicio 6
+"Ej 6 - caso 0" ~: ejercicio6 [[1,2,3,4],[1,2,3,4],[1,2,3,4],[1,2,3,4]] ~?= [[1,2,3,4],[1,0,3,4],[1,2,1,4],[1,2,3,0]],
+"Ej 6 - caso 1" ~: ejercicio6 [[1,1,1],[1,1,1],[1,1,1]] ~?= [[1,1,1],[1,1,1],[1,1,1]],
+"Ej 6 - caso 2" ~: ejercicio6 [[0,0,0],[0,0,0],[0,0,0]] ~?= [[0,0,0],[0,0,0],[0,0,0]]
+]
+</code></pre>
+<p>-}</p>
+<pre><code>
+## Resultado de la compilacion
+</code></pre>
+<p>
+    Loaded package environment from
+    /home/pablo/.ghc/x86_64-linux-9.6.6/environments/default [1 of 1] Compiling
+    SolucionT2 (
+    correcciones/parcialPF_TN/maldonado_pablo_ignacio_47138607/submission.hs.main.hs,
+    correcciones/parcialPF_TN/maldonado_pablo_ignacio_47138607/submission.hs.main.o
+    )
+</p>
+<pre><code>
+## Ejecucion de los tests
+### tema2-test-ej1.hs.compilacion.out
+Puntaje del ej: 2 / 2
+</code></pre>
+<p>Cases: 16 Tried: 1 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 2 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 3 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 4 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 5 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 6 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 7 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 8 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 9 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 10 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 11 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 12 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 13 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 14 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 15 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 16 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 16 Errors: 0 Failures: 0</p>
+<pre><code>
+### mchoice.json-ej2.compilacion.out
+Puntaje del ej: 0.0 / 0.5
+</code></pre>
+<p>mchoice ej2: respuesta del alumno=3, respuesta correcta=2</p>
+<p>Ran 1 test in 0 seconds</p>
+<p>FAILED (failures=1)</p>
+<pre><code>
+### mchoice.json-ej3.compilacion.out
+Puntaje del ej: 0.5 / 0.5
+</code></pre>
+<p>mchoice ej3: respuesta del alumno=1, respuesta correcta=1</p>
+<p>Ran 1 test in 0 seconds</p>
+<p>OK</p>
+<pre><code>
+### tema2-test-ej4.hs.compilacion.out
+Puntaje del ej: 2 / 2
+</code></pre>
+<p>Cases: 16 Tried: 1 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 2 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 3 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 4 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 5 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 6 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 7 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 8 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 9 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 10 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 11 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 12 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 13 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 14 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 15 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 16 Errors: 0 Failures: 0</p>
+<p>Cases: 16 Tried: 16 Errors: 0 Failures: 0</p>
+<pre><code>
+### tema2-test-ej5.hs.compilacion.out
+Puntaje del ej: 2 / 2
+</code></pre>
+<p>Cases: 15 Tried: 1 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 2 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 3 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 4 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 5 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 6 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 7 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 8 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 9 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 10 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 11 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 12 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 13 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 14 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 15 Errors: 0 Failures: 0</p>
+<p>Cases: 15 Tried: 15 Errors: 0 Failures: 0</p>
+<pre><code>
+### tema2-test-ej6.hs.compilacion.out
+Puntaje del ej: 2 / 2
+</code></pre>
+<p>Cases: 10 Tried: 1 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 2 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 3 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 4 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 5 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 6 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 7 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 8 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 9 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 10 Errors: 0 Failures: 0</p>
+<p>Cases: 10 Tried: 10 Errors: 0 Failures: 0</p>
+<pre><code>
+### mchoice.json-ej7.compilacion.out
+Puntaje del ej: 0.5 / 0.5
+</code></pre>
+<p>mchoice ej7: respuesta del alumno=1, respuesta correcta=1</p>
+<p>Ran 1 test in 0 seconds</p>
+<p>OK</p>
+<pre><code>
+### mchoice.json-ej8.compilacion.out
+Puntaje del ej: 0.5 / 0.5
+</code></pre>
+<p>mchoice ej8: respuesta del alumno=1, respuesta correcta=1</p>
+<p>Ran 1 test in 0 seconds</p>
+<p>OK</p>
+<p>```</p>
+<p>FIN</p>
