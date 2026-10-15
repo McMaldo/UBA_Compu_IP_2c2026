@@ -1,3 +1,4 @@
+# Parte 1
 # Ej 1
 def pertenece(num: int, num_list: list[int]) -> bool:
     for i in num_list:
@@ -24,6 +25,3 @@ def divide_a_todos(num: int, num_list: list[int]) -> bool:
         if i % num != 0:
             return False
     return True
-
-
-# Ej 3
