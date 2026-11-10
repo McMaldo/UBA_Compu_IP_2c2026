@@ -8,7 +8,6 @@ diccionario: [int] = [1, 2, 3]
 
 ### Set
 
-
 ```Python
 s : set [int] = {6, 7}
 ```
@@ -20,7 +19,6 @@ diccionario: dict[str, str] = {"key": "value", "key1": "value1"}
 ```
 
 ### Tuplas / N-uplas
-
 
 ```Python
 tupla: tuple[int, str] = (1, "2")

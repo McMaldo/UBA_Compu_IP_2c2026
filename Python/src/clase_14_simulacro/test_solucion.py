@@ -1,17 +1,12 @@
 import unittest
 from queue import LifoQueue as Pila
-from solucion import (
-    ejercicio1,
-    sumatoria,
-    ejercicio2,
-    ejercicio3,
-    ejercicio4
-)
+
+from solucion import ejercicio1, ejercicio2, ejercicio3, ejercicio4, sumatoria
 
 
 class test_ejercicio_1(unittest.TestCase):
     """Tests para ejercicio1"""
-    
+
     def test_ejercicio_1_ok(self):
         """
         Ejemplo: ejercicio1([1,3,2,5,4,1,8], 5) debe devolver [4,1]
@@ -26,7 +21,7 @@ class test_ejercicio_1(unittest.TestCase):
 
 class test_ejercicio_2(unittest.TestCase):
     """Tests para ejercicio2"""
-    
+
     def test_ejercicio_2(self):
         """
         Ejemplo: Si examenes contiene (de tope a base) [("Ana",1),("Beto",2),("Caro",1)],
@@ -37,7 +32,7 @@ class test_ejercicio_2(unittest.TestCase):
         examenes.put(("Caro", 1))
         examenes.put(("Beto", 2))
         examenes.put(("Ana", 1))
-        
+
         resultado = ejercicio2(examenes)
 
         # Verificar la pila resultante (tema 1)
@@ -46,7 +41,7 @@ class test_ejercicio_2(unittest.TestCase):
         while not resultado.empty():
             nombres_tema1.append(resultado.get())
         self.assertEqual(nombres_tema1, ["Ana", "Caro"])
-        
+
         # Verificar que examenes solo tiene tema 2
         self.assertEqual(examenes.qsize(), 1)
         self.assertEqual(examenes.get(), ("Beto", 2))
@@ -67,7 +62,7 @@ class test_ejercicio_3(unittest.TestCase):
 
 class test_ejercicio_4(unittest.TestCase):
     """Tests para ejercicio4"""
-    
+
     def test_ejercicio_4(self):
         """
         Ejemplo: ejercicio4({"Ana":"X","Beto":"Y","Caro":"X"}, {"Ana":"X","Beto":"X","Caro":"X"})

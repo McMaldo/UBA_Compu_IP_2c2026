@@ -1,12 +1,14 @@
 import unittest
+
 from Python.src.clase_11.problema import palabras_unidas, suma_total
+
 
 class test_suma(unittest.TestCase):
 
     def test_suma_vacia(self):
         secuencia: list[int] = []
         self.assertEqual(suma_total(secuencia), 0)
-    
+
     def test_suma_todo_0(self):
         secuencia: list[int] = [0,0,0]
         self.assertEqual(suma_total(secuencia), 0)
@@ -21,7 +23,7 @@ class test_suma(unittest.TestCase):
 
 
 class test_palabras_unidas(unittest.TestCase):
-    
+
     def test_palabras_unidas_todo_largo_0(self):
         s: list[str] = ["","",""]
         self.assertEqual(palabras_unidas(s), "")
