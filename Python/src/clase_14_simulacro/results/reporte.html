@@ -1,0 +1,511 @@
+<h1>Parcial - tema2</h1>
+<p>Nota: 7.7 / 10.0 (APROBADO)</p>
+<pre><code>puntaje ej1: 0.45
+puntaje ej2: 2.25
+puntaje ej3: 2.25
+puntaje ej4: 2.25
+puntaje ej5: 0.0
+puntaje ej6: 0.5
+</code></pre>
+<h2>Datos del alumno</h2>
+<p>Nombre: Pablo Ignacio Madonado</p>
+<p>DNI: ---</p>
+<p>LU: ---</p>
+<p>Maquina: 55-04</p>
+<h2>Enunciado</h2>
+<!doctype html>
+<html>
+<head>
+  <link rel="icon" href="data:,">
+  <link href="css/style.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+
+  <style>
+    th, td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .conditions {
+        margin-left: 20px;
+    }
+</style>
+</head>
+
+<body style="width: 50%;margin: 1% auto;">
+
+<div>
+<h1> Simulacro Python - Tema 2</h1>
+
+<h2> Importante </h2>
+
+<ul>
+  <li>Template de funciones a implementar <a href="#" onclick="forceDownload('/parcial/Template_t2.py','Template_t2.py');">acá</a><br></li>
+  <li>Lista de funciones permitidas <a href="/static/python_permitidas.html">acá</a></li>
+  <li>Para testear el código pueden usar <a href="#" onclick="forceDownload('/parcial/tema2-test.py', 'tema2-test.py')">este</a> archivo que ya cuenta con todo lo necesario para desarrollar sus propios tests (este archivo no se entrega)</li>
+</ul>
+
+Implementar las siguientes especificaciones en Python.
+
+<form name="form1" action="/submit_examen" method="post" enctype="multipart/form-data" onsubmit="return validaciones(event)">
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 1 [2,25 puntos]</h3>
+
+<p> problema ejercicio1 (in <i>s</i>: seq⟨Z⟩, in <i>n</i>: Z) : seq⟨Z⟩ {<br>
+  &nbsp; <strong>requiere:</strong> { Existe al menos una subsecuencia de <i>s</i> que suma exactamente <i>n</i> }<br>
+  &nbsp; <strong>requiere:</strong> { Todos los elementos de <i>s</i> son estrictamente mayores a 0 }<br>
+  &nbsp; <strong>asegura:</strong> { <i>res</i> es una subsecuencia consecutiva de <i>s</i> que suma exactamente <i>n</i> }<br>
+  &nbsp; <strong>asegura:</strong> { Si hay más de una subsecuencia de <i>s</i> que suma exactamente <i>n</i>, <i>res</i> es la que tiene el índice de inicio más grande }<br>
+}<br>
+</p>
+
+<pre style="background-color: #f0f0f0; /* Color de fondo del recuadro */
+padding: 2px; /* Espacio interior */
+border: 1px solid #ccc; /* Borde del recuadro */
+border-radius: 5px; /* Bordes redondeados */">
+Ejemplo: <b>ejercicio1([1,3,2,5,4,1,8], 5)</b> debe devolver <b>[4,1]</b>
+</pre>
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 2 [2,25 puntos]</h3>
+
+  <p>Un docente recibe una pila de exámenes (no todos son en compu!), y desea separarlos por tema para facilitar el trabajo
+    de corrección. La pila contiene tuplas con el nombre del alumno y el tema del examen, y desea sacar de dicha pila los
+    exámenes de tema 1 y ponerlos en una nueva pila, manteniendo en ambas pilas el orden original.
+  </p>
+
+  <p> problema ejercicio2 (inout <i>examenes</i>: Pila⟨String x Z⟩) : Pila⟨String⟩ {<br>
+  &nbsp; <strong>requiere:</strong> { Todos los elementos de <i>examenes</i> tienen en la segunda componente de la tupla un 1 o un 2 }<br>
+ &nbsp; <strong>requiere:</strong> { Todas las primeras componentes de tupla de <i>examenes</i> son distintas entre sí }<br>
+  &nbsp; <strong>modifica:</strong> { <i>examenes</i> }<br>
+  &nbsp; <strong>asegura:</strong> { <i>res</i> contiene exactamente los nombres cuya segunda componente en <i>examenes@pre</i> tenía tema = 1, en el mismo orden que se encontraban en <i>examenes@pre</i> }<br>
+  &nbsp; <strong>asegura:</strong> { <i>examenes</i> contiene exactamente las tuplas de <i>examenes@pre</i> cuya segunda componente son tema = 2 allí, en el mismo orden que se encontraban originalmente .}<br>
+  }<br>
+  </p>
+
+  <pre style="background-color: #f0f0f0; /* Color de fondo del recuadro */
+padding: 2px; /* Espacio interior */
+border: 1px solid #ccc; /* Borde del recuadro */
+border-radius: 5px; /* Bordes redondeados */">
+Ejemplo: Si <b>examenes</b> contiene (de tope a base) <b>[("Ana",1),("Beto",2),("Caro",1),("Juan",2)]</b>, <br/>
+entonces se debe devolver <b>["Ana","Caro"] y</b> <b>examenes</b> contiene <b>[("Beto",2),("Juan",2)]</b>
+  </pre>
+
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 3 [2,25 puntos]</h3>
+
+   <p> problema ejercicio3 (inout <i>A</i>: seq⟨seq⟨Z⟩⟩)  {<br>
+  &nbsp; <strong>requiere:</strong> { |A| > 0 }<br>
+  &nbsp; <strong>requiere:</strong> { Todos los elementos de <i>A</i> tienen la misma longitud, la cual es estrictamente mayor a 0 }<br>
+  &nbsp; <strong>modifica:</strong> { <i>A</i> }<br>
+  &nbsp; <strong>asegura:</strong> { |<i>A</i>| = |<i>A@pre</i>| }<br>
+  &nbsp; <strong>asegura:</strong> { Todos los elementos de <i>A</i> tienen la misma longitud }<br>
+  &nbsp; <strong>asegura:</strong> {|<i>A[0]</i>| = |<i>A@pre[0]</i>| + 1 }<br>
+
+  &nbsp; <strong>asegura:</strong> { A[i][j] = A@pre[i][j] para todo <i>i</i>, <i>j</i> en rango tal que <i>j</i> ≠ |A[0]|-1 }<br>
+  &nbsp; <strong>asegura:</strong> { A[i][|A[0]|-1] = minimoDeLista(A@pre[i]) para todo <i></i>i</i> en rango }<br>
+  }<br>
+  </p>
+
+    <p>Nota: minimoDeLista representa el mínimo valor de una lista</p>
+
+  <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 4 [2,25 puntos]</h3>
+
+  <p>Contamos con los datos de dos elecciones consecutivas. A pesar de que el voto es secreto, sabemos a qué candidato votó
+    cada persona en cada una de las elecciones, ya que contamos con diccionarios cuyas claves son los ciudadados y cuyos valores son los
+    candidatos a los cuales votó. Implementar la función ejercicio4, que nos permite saber cuantos candidatos conservaron sus votos.</p>
+
+  <p> problema ejercicio4 (in <i>eleccion1</i>: dict⟨String, String⟩, in <i>eleccion2</i>: dict⟨String, String⟩) : dict⟨String, Z⟩ {<br>
+  &nbsp; <strong>requiere:</strong> { Las claves de <i>eleccion1</i> y <i>eleccion2</i> coinciden }<br>
+  &nbsp; <strong>asegura:</strong> { Las claves de <i>res</i> son un subconjunto de los valores de <i>eleccion1</i> y <i>eleccion2</i> }<br>
+  &nbsp; <strong>asegura:</strong> { Un candidato <i>c</i> está en <i>res</i> si y sólo si al menos un mismo ciudadano votó por <i>c</i> en ambas elecciones }<br>
+  &nbsp; <strong>asegura:</strong> { Para cada clave <i>c</i> de <i>res</i>, <i>res[c]</i> es la cantidad de ciudadanos que votaron por <i>c</i> en ambas elecciones }<br>
+  </p>
+
+  <pre style="background-color: #f0f0f0; /* Color de fondo del recuadro */
+padding: 2px; /* Espacio interior */
+border: 1px solid #ccc; /* Borde del recuadro */
+border-radius: 5px; /* Bordes redondeados */">
+Ej: <b>ejercicio4 ({"Ana":"X","Beto":"Y","Caro":"X"} ,{"Ana":"X","Beto":"X","Caro":"X"}))</b><br/> debe devolver <b>{'X':2}</b>
+  </pre>
+
+  <hr style="width: 100%;">
+
+  <h3 style="color:#1A5276">Ejercicio 5 [0,5 punto]</h3>
+  <p>Conteste marcando la opción correcta.</p>
+
+    <h4 style="color:#1A5276">Dado el siguiente código en Python, considere cobertura de ramas vs. cobertura de condiciones básicas:</h4>
+
+    <pre style="background-color: #f0f0f0; padding: 2px; border: 1px solid #ccc; border-radius: 5px;">
+    def f(a:int, b:int) -> int:
+      if a > 0 and b % 2 == 0:
+        return 1
+      if a == 0 or b > 10:
+        return 2
+      return 3
+    </pre>
+
+    <p>Cada caso de prueba se indica como (a, b). ¿Cuál conjunto logra 100% de cobertura de ramas pero NO 100% de cobertura de condiciones básicas?</p>
+
+    <p>
+    <input type="radio" name="mchoice_1" id="Bopcion1" value="1" />
+    <label for="Bopcion1">Casos de prueba: (1,2), (1,11), (1,3)</label> <br>
+    <input type="radio" name="mchoice_1" id="Bopcion2" value="2" />
+    <label for="Bopcion2">Casos de prueba: (1,2), (0,3), (1,11)</label> <br>
+    <input type="radio" name="mchoice_1" id="Bopcion3" value="3" />
+    <label for="Bopcion3">Casos de prueba: (1,2), (1,11), (0,11), (1,1) </label> <br>
+    </p>
+
+
+    <hr style="width: 100%;">
+  <h3 style="color:#1A5276">Ejercicio 6 [0,5 punto]</h3>
+
+  <p>Elija un nombre adecuado para la función a definir en el ejercicio 3.</p>
+
+     <p>
+      <input type="radio" name="mchoice_2" id="Aopcion1" value="1" />
+          <label for="Aopcion1">eliminar_fila_con_minimo_de_columna</label> <br>
+      <input type="radio" name="mchoice_2" id="Aopcion2" value="2" />
+          <label for="Aopcion2">agregar_fila_con_minimo_de_columna</label> <br>
+      <input type="radio" name="mchoice_2" id="Aopcion3" value="3" />
+          <label for="Aopcion3">agregar_columna_con_minimo_de_fila</label> <br>
+    <input type="radio" name="mchoice_2" id="Aopcion4" value="4" />
+          <label for="Aopcion4">eliminar_columna_con_minimo_de_fila</label> <br>
+      </p>
+
+      <hr style="width: 100%;">
+      <h3 style="color:#1A5276">Adjunta el archivo con tu solución:</h3>
+      <p><b style="color:red">Solo se puede adjuntar 1 archivo de extensión .py. En caso de haber desarrollado tests
+          propios, no deben ser entregados.</b></p>
+
+      <label for="archivo">Seleccionar archivo a enviar:</label>
+      <input type="file" id="archivo" name="archivo" required accept=".py,text/x-python" />
+
+      <input type="submit" value="Enviar" style="background-color: #1A5276; border-radius: 5px;
+                margin-top:10px;padding: 10px 150px;color: #FFFFFF;
+                font-size: 20px;cursor: pointer; width:100%">
+
+    </form>
+  </div>
+<script>
+  function validaciones(event) {
+    // Obtiene todos los inputs tipo radio del formulario
+      const radioGroups = document.querySelectorAll('input[type="radio"]');
+      const groupedByName = {};
+
+      // Agrupar radios por su atributo name
+      radioGroups.forEach(radio => {
+        if (!groupedByName[radio.name]) {
+          groupedByName[radio.name] = [];
+        }
+        groupedByName[radio.name].push(radio);
+      });
+
+      // Verificar que cada grupo de radios tenga al menos uno seleccionado
+      for (const groupName in groupedByName) {
+        const radios = groupedByName[groupName];
+        const isChecked = radios.some(radio => radio.checked);
+
+        if (!isChecked) {
+          alert(`Debes seleccionar una opción para la pregunta ${groupName}`);
+          return false; // Detener la validación si falta alguna opción
+        }
+      }
+
+      var confirmacion = confirm("Confirmo que revisé mis respuestas y que quiero entregar mi examen");
+      if (!confirmacion) {
+          event.preventDefault();
+          event.returnValue = false;
+          return false;
+        }
+        event.returnValue = true;
+        return true;
+    }
+
+// registro una funcion para mostrar el archivo cuando se adjunta.
+// de esa forma evitamos que se adjunten otros archivos por error
+document
+  .getElementById('archivo')
+  .addEventListener(
+      'change',
+      function () {
+          var fr = new FileReader();
+          fr.onload = function () {
+              alert(this.result);
+          };
+          fr.readAsText(this.files[0]);
+      }
+  );
+
+// para forzar a bajar el template de pytest y que no se pueda abrir en un nuevo tab
+// (el browser intenta mostrar el codigo como HTML y el formato se ve raro)
+function forceDownload(url, filename) {
+  fetch(url).then(function(t) {
+    return t.blob().then((b) => {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(b);
+      a.setAttribute("download", filename);
+      a.click();
+    });
+  });
+}
+</script>
+</body>
+
+</html>
+
+<h2>Solucion entregada por el alumno</h2>
+<pre><code>from queue import LifoQueue as Pila
+
+
+# Ejercicio 1
+def sumatoria(s: list[int]) -&gt; int:
+    total:int = 0
+
+    for i in s:
+        total += i
+
+    return total
+
+
+def ejercicio1(s: list[int], n: int) -&gt; list[int]:
+    res: list[int] = []
+    aux: list[int] = []
+
+    for i in s:
+        aux.append(i)
+
+        if sumatoria(aux) &gt; n or aux[0] == n:
+            aux.clear()
+        elif sumatoria(aux) == n:
+            if len(res) == 0:
+                res = aux.copy()
+            elif aux[0] &gt; res[0]:
+                res = aux.copy()
+
+    return res
+
+
+# Ejercicio 2
+def ejercicio2(examenes: Pila[(str, int)]) -&gt; Pila[str]:
+    res: Pila[str] = Pila()
+    tema_1: Pila[str] = Pila()
+    tema_2: Pila[(str, int)] = Pila()
+
+    while not examenes.empty():
+        item: tuple[str, int] = examenes.get()
+
+        if item[1] == 1:
+            tema_1.put(item[0])
+        else:
+            tema_2.put(item)
+
+    while not tema_1.empty():
+        item: tuple[str, int] = tema_1.get()
+        res.put(item)
+
+    while not tema_2.empty():
+        item: tuple[str, int] = tema_2.get()
+        examenes.put(item)
+
+    return res
+
+
+# Ejercicio 3
+def ejercicio3(A: list[list[int]]) -&gt; None:
+    for i in range(0, len(A)):
+        A[i].append(minimo_de_lista(A[i]))
+
+
+def minimo_de_lista(lista: list[int]) -&gt; int:
+    min: int = lista[0]
+
+    for i in lista:
+        if i &lt; min:
+            min = i
+
+    return min
+
+
+# Ejercicio 4
+def ejercicio4(eleccion1: dict[str, str], eleccion2: dict[str, str]) -&gt; dict[str, int]:
+    res: dict[str, int] = {}
+
+    for i in eleccion1.keys():
+        if eleccion1[i] == eleccion2[i]:
+            if not eleccion1[i] in res.keys():
+                res[eleccion1[i]] = 1
+            else:
+                res[eleccion1[i]] += 1
+
+    return res
+
+
+# Ejercicio 5
+def ejercicio5(a:int, b:int) -&gt; int:
+    if a &gt; 0 and b % 2 == 0:
+        return 1
+    if a == 0 or b &gt; 10:
+        return 2
+    return 3
+# [ ] Casos de prueba: (1,2), (1,11), (1,3)
+# [x] Casos de prueba: (1,2), (0,3), (1,11)
+# [ ] Casos de prueba: (1,2), (1,11), (0,11), (1,1)
+
+
+# Ejercicio 6 - nombre adecuado para la función a definir en el ejercicio 3
+# [ ] eliminar_fila_con_minimo_de_columna
+# [ ] agregar_fila_con_minimo_de_columna
+# [x] agregar_columna_con_minimo_de_fila
+# [ ] eliminar_columna_con_minimo_de_fila
+</code></pre>
+<h2>Resultado de la compilacion</h2>
+<pre><code>
+</code></pre>
+<h2>Ejecucion de los tests</h2>
+<h3>tema2-test-ej1.py.compilacion.out</h3>
+<p>Puntaje del ej: 0.45 / 2.25</p>
+<pre><code>test_ejercicio1 (__main__.Ej1Test.test_ejercicio1)
+Ejemplo: ejercicio1([1,3,2,5,4,1,8], 5) debe devolver [4,1] ... ok
+test_secuencia_con_unico_elemento (__main__.Ej1Test.test_secuencia_con_unico_elemento) ... FAIL
+test_secuencia_todos_iguales (__main__.Ej1Test.test_secuencia_todos_iguales) ... ok
+test_subsecuencia_al_comienzo (__main__.Ej1Test.test_subsecuencia_al_comienzo) ... ok
+test_subsecuencia_de_unico_elemento (__main__.Ej1Test.test_subsecuencia_de_unico_elemento) ... FAIL
+test_suma_en_ultimo (__main__.Ej1Test.test_suma_en_ultimo) ... FAIL
+
+======================================================================
+FAIL: test_secuencia_con_unico_elemento (__main__.Ej1Test.test_secuencia_con_unico_elemento)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3/dist-packages/timeout_decorator/timeout_decorator.py&quot;, line 82, in new_function
+    return function(*args, **kwargs)
+  File &quot;/home/pablo/w/materias/intro-programacion/2c2026/correcciones/simulacro_python_TN/madonado_pablo_ignacio_47138607/tema2-test-ej1.py&quot;, line 28, in test_secuencia_con_unico_elemento
+    self.assertEqual(resultado, [5])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [5]
+
+Second list contains 1 additional elements.
+First extra element 0:
+5
+
+- []
++ [5]
+?  +
+
+
+======================================================================
+FAIL: test_subsecuencia_de_unico_elemento (__main__.Ej1Test.test_subsecuencia_de_unico_elemento)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3/dist-packages/timeout_decorator/timeout_decorator.py&quot;, line 82, in new_function
+    return function(*args, **kwargs)
+  File &quot;/home/pablo/w/materias/intro-programacion/2c2026/correcciones/simulacro_python_TN/madonado_pablo_ignacio_47138607/tema2-test-ej1.py&quot;, line 20, in test_subsecuencia_de_unico_elemento
+    self.assertEqual(resultado, [1])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [1]
+
+Second list contains 1 additional elements.
+First extra element 0:
+1
+
+- []
++ [1]
+?  +
+
+
+======================================================================
+FAIL: test_suma_en_ultimo (__main__.Ej1Test.test_suma_en_ultimo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3/dist-packages/timeout_decorator/timeout_decorator.py&quot;, line 82, in new_function
+    return function(*args, **kwargs)
+  File &quot;/home/pablo/w/materias/intro-programacion/2c2026/correcciones/simulacro_python_TN/madonado_pablo_ignacio_47138607/tema2-test-ej1.py&quot;, line 36, in test_suma_en_ultimo
+    self.assertEqual(resultado, [8])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [8]
+
+Second list contains 1 additional elements.
+First extra element 0:
+8
+
+- []
++ [8]
+?  +
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.003s
+
+FAILED (failures=3)
+
+</code></pre>
+<h3>tema2-test-ej2.py.compilacion.out</h3>
+<p>Puntaje del ej: 2.25 / 2.25</p>
+<pre><code>test_ejercicio2 (__main__.Ej2Test.test_ejercicio2) ... ok
+test_pilaexamenes_vacia (__main__.Ej2Test.test_pilaexamenes_vacia) ... ok
+test_todos_tema1 (__main__.Ej2Test.test_todos_tema1) ... ok
+test_todos_tema2 (__main__.Ej2Test.test_todos_tema2) ... ok
+test_varias_personas (__main__.Ej2Test.test_varias_personas) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.003s
+
+OK
+
+</code></pre>
+<h3>tema2-test-ej3.py.compilacion.out</h3>
+<p>Puntaje del ej: 2.25 / 2.25</p>
+<pre><code>test_ejercicio3 (__main__.Ej3Test.test_ejercicio3) ... ok
+test_matriz_grande (__main__.Ej3Test.test_matriz_grande) ... ok
+test_matriz_no_cuadrada (__main__.Ej3Test.test_matriz_no_cuadrada) ... ok
+test_matriz_no_cuadrada_ancha (__main__.Ej3Test.test_matriz_no_cuadrada_ancha) ... ok
+test_matriz_una_columna (__main__.Ej3Test.test_matriz_una_columna) ... ok
+test_matriz_una_fila (__main__.Ej3Test.test_matriz_una_fila) ... ok
+test_positivos_y_negativos (__main__.Ej3Test.test_positivos_y_negativos) ... ok
+test_todos_negativos (__main__.Ej3Test.test_todos_negativos) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK
+
+</code></pre>
+<h3>tema2-test-ej4.py.compilacion.out</h3>
+<p>Puntaje del ej: 2.25 / 2.25</p>
+<pre><code>test_ejercicio4 (__main__.Ej4Test.test_ejercicio4) ... ok
+test_elecciones_vacias (__main__.Ej4Test.test_elecciones_vacias) ... ok
+test_muchos_candidatos (__main__.Ej4Test.test_muchos_candidatos) ... ok
+test_ninguno_mantuvo_voto (__main__.Ej4Test.test_ninguno_mantuvo_voto) ... ok
+test_todos_mantuvo_voto (__main__.Ej4Test.test_todos_mantuvo_voto) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+OK
+
+</code></pre>
+<h3>mchoice.json-ej5.compilacion.out</h3>
+<p>Puntaje del ej: 0.0 / 0.5</p>
+<pre><code>mchoice ej5: respuesta del alumno=2, respuesta correcta=1
+
+Ran 1 test in 0 seconds
+
+FAILED (failures=1)
+
+</code></pre>
+<h3>mchoice.json-ej6.compilacion.out</h3>
+<p>Puntaje del ej: 0.5 / 0.5</p>
+<pre><code>mchoice ej6: respuesta del alumno=3, respuesta correcta=3
+
+Ran 1 test in 0 seconds
+
+OK
+
+</code></pre>
+<p>FIN</p>
